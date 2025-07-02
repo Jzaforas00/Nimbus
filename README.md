@@ -4,12 +4,12 @@
 Status: In development
 
 ## ✨ Features
-  - 📍 **Current Weather:** See up-to-date weather information for your location.
-  - 🔍 **Search by City:** Look up the weather in any city.
-  - 🗓️ **Forecast:** View upcoming weather for the next few days.
-  - 🌡️ **Detailed Data:** Temperature, humidity, wind speed, and conditions.
-  - 🎨 **Clean UI:** Simple and responsive interface.
-  - ⚡ **API Integration:** Real-time data fetched from a weather API.
+  - **Current Weather:** See up-to-date weather information for your location.
+  - **Search by City:** Look up the weather in any city.
+  - **Forecast:** View upcoming weather for the next few days.
+  - **Detailed Data:** Temperature, humidity, wind speed, and conditions.
+  - **Clean UI:** Simple and responsive interface.
+  - **API Integration:** Real-time data fetched from a weather API.
 
 ## 🛠️ Technologies Used
   - **Android Studio** (Java)
