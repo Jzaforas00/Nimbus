@@ -1,6 +1,8 @@
 # 🌤️ Nimbus
 **Nimbus** is a mobile application that connects to a weather API to display real-time weather forecasts.
 
+Status: In development
+
 ## ✨ Features
   - 📍 **Current Weather:** See up-to-date weather information for your location.
   - 🔍 **Search by City:** Look up the weather in any city.
