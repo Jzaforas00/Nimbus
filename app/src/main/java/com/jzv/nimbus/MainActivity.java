@@ -57,10 +57,24 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject condition = current.getJSONObject("condition");
 
                             String ciudad = location.getString("name");
-                            String temp = current.getString("temp_c");
-                            String estado = condition.getString("text");
+                            String region = location.getString("region");
+                            String hora_dia = "";
+                            String temp = current.getString("temp_c"); //Cº
+                            String clima = condition.getString("text");
+                            String vientoKh = current.getString("wind_kph");
+                            String humedad = current.getString("humidity");
+                            String visibilidad = current.getString("vis_km");
+                            String indiceUV = current.getString("uv");
 
-                            String mensaje = "Ciudad: " + ciudad + "\nTemperatura: " + temp + "°C\nEstado: " + estado;
+                            String mensaje = "Ciudad: " + ciudad +
+                                    "\nRegión: " + region +
+                                    "\nTemperatura: " + temp + " Cº" +
+                                    "\nClima: " + clima +
+                                    "\nViento: " + vientoKh + " Km/h" +
+                                    "\nHumedad: " + humedad + " %" +
+                                    "\nVisibilidad: " + visibilidad + " Km" +
+                                    "\nUV: " + indiceUV;
+
                             prueba.setText(mensaje);
 
                         } catch (JSONException e) {
@@ -74,7 +88,18 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         prueba.setText("Error de conexión o en la API");
                     }
-                });
+                }) {
+                    @Override
+                    protected Response<String> parseNetworkResponse(com.android.volley.NetworkResponse response) {
+                        try {
+                            String jsonString = new String(response.data, "UTF-8");
+                            return Response.success(jsonString,
+                                    com.android.volley.toolbox.HttpHeaderParser.parseCacheHeaders(response));
+                        } catch (Exception e) {
+                            return Response.error(new VolleyError("Error de codificación", e));
+                        }
+                    }
+                };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.getCache().clear();
