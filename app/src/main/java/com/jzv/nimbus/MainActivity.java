@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     String apiKey = "408edb444b564d43a76203814253007";
     String urlAPI = "https://api.weatherapi.com/v1/current.json?key="+apiKey+"&q=Alcañiz&aqi=no";
-    TextView prueba;
+    String urlAPI_Pasado = "http://api.weatherapi.com/v1/history.json?key="+apiKey+"&q=Alcañiz&dt=2025-08-05";
+    String urlAPI_Futuro = "http://api.weatherapi.com/v1/future.json?key="+apiKey+"&q=Alcañiz&dt=2025-08-07";
+
+    TextView ciud, clim, temp, fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        prueba = findViewById(R.id.pruebaApi);
+        ciud = findViewById(R.id.campoCiudad);
+        clim = findViewById(R.id.campoClima);
+        temp = findViewById(R.id.campoTemperatura);
+        fecha = findViewById(R.id.campoFecha);
         
         pruebaApi();
     }
@@ -59,34 +65,28 @@ public class MainActivity extends AppCompatActivity {
                             String ciudad = location.getString("name");
                             String region = location.getString("region");
                             String hora_dia = "";
-                            String temp = current.getString("temp_c"); //Cº
+                            String temperatura = current.getString("temp_c"); //Cº
                             String clima = condition.getString("text");
                             String vientoKh = current.getString("wind_kph");
                             String humedad = current.getString("humidity");
                             String visibilidad = current.getString("vis_km");
                             String indiceUV = current.getString("uv");
 
-                            String mensaje = "Ciudad: " + ciudad +
-                                    "\nRegión: " + region +
-                                    "\nTemperatura: " + temp + " Cº" +
-                                    "\nClima: " + clima +
-                                    "\nViento: " + vientoKh + " Km/h" +
-                                    "\nHumedad: " + humedad + " %" +
-                                    "\nVisibilidad: " + visibilidad + " Km" +
-                                    "\nUV: " + indiceUV;
-
-                            prueba.setText(mensaje);
+                            ciud.setText(ciudad);
+                            clim.setText(clima);
+                            temp.setText(temperatura);
+                            fecha.setText(hora_dia);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            prueba.setText("Error al procesar la respuesta JSON");
+                            Toast.makeText(MainActivity.this, "Error al procesar la respuesta JSON", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        prueba.setText("Error de conexión o en la API");
+                        Toast.makeText(MainActivity.this, "Error de conexión o en la API", Toast.LENGTH_SHORT).show();
                     }
                 }) {
                     @Override

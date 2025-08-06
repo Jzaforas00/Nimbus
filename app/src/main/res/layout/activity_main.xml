@@ -5,17 +5,111 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/material_dynamic_primary90"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/pruebaApi"
+        android:id="@+id/campoCiudad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="177dp"
-        android:text="TextView"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="219dp"
+        android:text="Ciudad"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/campoClima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="236dp"
+        android:text="Clima"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campoCiudad" />
+
+    <TextView
+        android:id="@+id/campoTemperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="130dp"
+        android:text="00º"
+        android:textSize="96sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campoClima" />
+
+    <TextView
+        android:id="@+id/campoFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="152dp"
+        android:text="Fecha Hora de Hoy"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campoTemperatura" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campoFecha">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabLunes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mond" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabMartes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesd" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabMiercoles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wedn" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabJueves"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thurs" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabViernes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friday" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabSabado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Satur." />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabDomingo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sund." />
+
+    </com.google.android.material.tabs.TabLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
