@@ -22,6 +22,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     String apiKey = "408edb444b564d43a76203814253007";
@@ -64,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                             String ciudad = location.getString("name");
                             String region = location.getString("region");
-                            String hora_dia = "";
+                            String hora_dia = obtenerFechaHoraActual();
                             String temperatura = current.getString("temp_c"); //Cº
                             String clima = condition.getString("text");
                             String vientoKh = current.getString("wind_kph");
@@ -104,5 +110,10 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.getCache().clear();
         requestQueue.add(request);
+    }
+
+    public String obtenerFechaHoraActual() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        return sdf.format(Calendar.getInstance().getTime());
     }
 }
